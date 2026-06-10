@@ -373,7 +373,33 @@
   .footer-contact-links strong { color: white; font-weight: 600; }
   .footer-contact-links a { color: var(--turmeric-light); text-decoration: none; word-break: break-all; }
 
-  .footer-center-tagline { text-align: center; font-size: clamp(0.85rem, 2vw, 0.98rem); color: var(--cream); font-weight: 600; line-height: 1.6; max-width: 900px; margin: 2rem auto; padding: 0 10px; }
+  /* ──── UPDATED FOOTER BOX DESIGN ──── */
+  .footer-center-tagline {
+    text-align: center;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    color: var(--cream);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 3.5rem auto;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    background: linear-gradient(135deg, rgba(232, 160, 32, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(232, 160, 32, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .footer-center-tagline span.highlight-stat {
+    color: var(--turmeric-light);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-size: 1.1em;
+  }
+  .footer-center-tagline span.dot-sep {
+    color: rgba(253, 246, 236, 0.3);
+    margin: 0 10px;
+  }
+
   .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 2rem; width: 100%; }
   .footer-copy { font-size: 0.82rem; opacity: 0.35; text-align: center; letter-spacing: 0.01em; width: 100%; padding: 0 10px; line-height: 1.5; }
   
@@ -406,6 +432,7 @@
 </head>
 <body>
 
+<!-- NAVIGATION HEADER -->
 <nav>
   <div class="nav-brand">
     <span class="eng">Mayer Haater Swaad</span>
@@ -421,6 +448,7 @@
   </button>
 </nav>
 
+<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-inner">
     <h1>Mayer Haater <span>Swaad</span></h1>
@@ -443,6 +471,7 @@
   </div>
 </section>
 
+<!-- PRODUCT CATALOG -->
 <section id="products">
   <div class="section-header">
     <p class="section-label">Premium Authentic Batches</p>
@@ -451,6 +480,7 @@
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
+<!-- HERITAGE ABOUT STORY -->
 <section id="about">
   <div class="about-text">
     <span class="section-label">Our Heritage</span>
@@ -466,6 +496,7 @@
   </div>
 </section>
 
+<!-- HEALTH MANIFESTO MANIFESTATION -->
 <section class="health-manifesto-section">
   <div class="manifesto-box">
     <div class="manifesto-eng">"We understand the true value of life. In an era where purity is rare and compromising to health, we stand committed to shielding your family by crafting 100% pure organic spices for your everyday wholesome cooking."</div>
@@ -473,6 +504,7 @@
   </div>
 </section>
 
+<!-- 4-STEP TIMELINE BLOCK -->
 <section id="process-guidelines">
   <span class="section-label">Seamless Purchase Cycle</span>
   <h2 class="section-title">Order In 4 Easy Steps</h2>
@@ -504,6 +536,7 @@
   </div>
 </section>
 
+<!-- FULL SCREEN CHECKOUT DESK MODAL SYSTEM -->
 <div class="cart-modal" id="cartModal">
   <div class="cart-modal-header">
     <h2>🛒 Premium Checkout Desk</h2>
@@ -512,6 +545,7 @@
   
   <div class="checkout-viewport-grid cart-is-empty-state-active" id="modalCheckoutMainViewportGrid">
     
+    <!-- LEFT COLUMN FLOW (ADDRESS FORMS) -->
     <div class="checkout-left-scroll" id="modalCheckoutFormLeftColumn" style="display: none;">
       <div class="checkout-card-section">
         <div class="checkout-section-title">📍 Delivery Destination Address</div>
@@ -572,7 +606,9 @@
       </div>
     </div>
 
+    <!-- RIGHT COLUMN FLOW / EMPTY STATE REGION -->
     <div class="checkout-right-scroll" id="modalCheckoutSummaryRightColumn">
+      <!-- 🛠️ FIXED MODERN CARDS EMPTY VIEWPORT STATE -->
       <div class="cart-empty-state" id="checkoutCartEmptyPlaceholder">
         <div class="cart-empty-icon-wrap">🛒</div>
         <h3>Your selection basket is empty</h3>
@@ -592,6 +628,7 @@
   </div>
 </div>
 
+<!-- PROFESSIONAL HIGH-END CORPORATE FOOTER -->
 <footer>
   <div class="footer-container">
     <div class="footer-info-brand">
@@ -612,7 +649,7 @@
     <div class="footer-contact-links">
       <h4>Customer Care Desk</h4>
       <ul>
-        <li><strong>Business Hours:</strong> 9:00 AM — 8:00 PM</li>
+        <li><strong>Business Hours:</strong> 9:00 AM — 9:00 PM</li>
         <li><strong>Support Email:</strong> <a href="mailto:support@mayerhaaterswaad.com">support@mayerhaaterswaad.com</a></li>
         <li><strong>WhatsApp Line:</strong> +91 7085330756</li>
         <li><strong>Farmland Hub:</strong> Murshidabad District, West Bengal, India</li>
@@ -621,7 +658,11 @@
   </div>
 
   <div class="footer-center-tagline">
-    100% Organic · 100% Natural · 0% Preservatives · Farm Fresh Masalas Delivered Straight To Your Doorstep.
+    <span class="highlight-stat">100% Organic</span> <span class="dot-sep">·</span> 
+    <span class="highlight-stat">100% Natural</span> <span class="dot-sep">·</span> 
+    <span class="highlight-stat">0% Preservatives</span>
+    <br><br>
+    Farm Fresh Masalas Delivered Straight To Your Doorstep.
   </div>
 
   <div class="footer-divider"></div>
