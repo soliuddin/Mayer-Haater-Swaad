@@ -406,7 +406,6 @@
 </head>
 <body>
 
-<!-- NAVIGATION HEADER -->
 <nav>
   <div class="nav-brand">
     <span class="eng">Mayer Haater Swaad</span>
@@ -422,7 +421,6 @@
   </button>
 </nav>
 
-<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-inner">
     <h1>Mayer Haater <span>Swaad</span></h1>
@@ -445,7 +443,6 @@
   </div>
 </section>
 
-<!-- PRODUCT CATALOG -->
 <section id="products">
   <div class="section-header">
     <p class="section-label">Premium Authentic Batches</p>
@@ -454,7 +451,6 @@
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
-<!-- HERITAGE ABOUT STORY -->
 <section id="about">
   <div class="about-text">
     <span class="section-label">Our Heritage</span>
@@ -470,7 +466,6 @@
   </div>
 </section>
 
-<!-- HEALTH MANIFESTO MANIFESTATION -->
 <section class="health-manifesto-section">
   <div class="manifesto-box">
     <div class="manifesto-eng">"We understand the true value of life. In an era where purity is rare and compromising to health, we stand committed to shielding your family by crafting 100% pure organic spices for your everyday wholesome cooking."</div>
@@ -478,7 +473,6 @@
   </div>
 </section>
 
-<!-- 4-STEP TIMELINE BLOCK -->
 <section id="process-guidelines">
   <span class="section-label">Seamless Purchase Cycle</span>
   <h2 class="section-title">Order In 4 Easy Steps</h2>
@@ -510,7 +504,6 @@
   </div>
 </section>
 
-<!-- FULL SCREEN CHECKOUT DESK MODAL SYSTEM -->
 <div class="cart-modal" id="cartModal">
   <div class="cart-modal-header">
     <h2>🛒 Premium Checkout Desk</h2>
@@ -519,7 +512,6 @@
   
   <div class="checkout-viewport-grid cart-is-empty-state-active" id="modalCheckoutMainViewportGrid">
     
-    <!-- LEFT COLUMN FLOW (ADDRESS FORMS) -->
     <div class="checkout-left-scroll" id="modalCheckoutFormLeftColumn" style="display: none;">
       <div class="checkout-card-section">
         <div class="checkout-section-title">📍 Delivery Destination Address</div>
@@ -580,9 +572,7 @@
       </div>
     </div>
 
-    <!-- RIGHT COLUMN FLOW / EMPTY STATE REGION -->
     <div class="checkout-right-scroll" id="modalCheckoutSummaryRightColumn">
-      <!-- 🛠️ FIXED MODERN CARDS EMPTY VIEWPORT STATE -->
       <div class="cart-empty-state" id="checkoutCartEmptyPlaceholder">
         <div class="cart-empty-icon-wrap">🛒</div>
         <h3>Your selection basket is empty</h3>
@@ -602,7 +592,6 @@
   </div>
 </div>
 
-<!-- PROFESSIONAL HIGH-END CORPORATE FOOTER -->
 <footer>
   <div class="footer-container">
     <div class="footer-info-brand">
@@ -675,7 +664,7 @@ function renderGridMatrix() {
         <p class="product-desc">${p.desc}</p>
         
         <div class="product-action-wrapper">
-          <div class="min-order-note">⚠️ Minimum Pack Size: 250g</div>
+          <div class="min-order-note">⚠️ Minimum Order Quantity: 250g</div>
           <p class="weight-label">Select Weight variant</p>
           <div class="weight-selector" id="ws-${p.id}">
             ${p.tiers.map((t, i) => `
@@ -702,8 +691,18 @@ function selectWeightIndex(id, idx) {
   selectedTier[id] = idx;
   const p = PRODUCTS.find(x => x.id === id);
   const tier = p.tiers[idx];
+  
+  // Update UI selection classes
   document.querySelectorAll(`#ws-${id} .weight-chip`).forEach((chip, i) => chip.classList.toggle('selected', i === idx));
+  
+  // Update the price display
   document.getElementById('pr-' + id).innerHTML = `₹${tier.price}<span class="unit"> / ${tier.label}</span>`;
+  
+  // Reset the quantity counter to 1 immediately upon changing variant
+  const qtyDisplay = document.getElementById('qty-' + id);
+  if (qtyDisplay) {
+    qtyDisplay.textContent = '1';
+  }
 }
 
 function alterQuantityNode(id, factor) {
