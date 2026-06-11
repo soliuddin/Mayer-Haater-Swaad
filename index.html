@@ -445,7 +445,7 @@
     <a href="#process-guidelines">How To Order</a>
   </div>
   <button class="cart-btn" onclick="openFullscreenCheckout()">
-    🛒 View Basket <span class="cart-count" id="cartCount">0</span>
+    🛒 View Cart <span class="cart-count" id="cartCount">0</span>
   </button>
 </nav>
 
@@ -706,7 +706,7 @@ function renderGridMatrix() {
         <p class="product-desc">${p.desc}</p>
         
         <div class="product-action-wrapper">
-          <div class="min-order-note">⚠️ Minimum Order Quantity: 250g</div>
+          <div class="min-order-note">⚠️ Minimum Order Quantity: 500g</div>
           <p class="weight-label">Select Weight variant</p>
           <div class="weight-selector" id="ws-${p.id}">
             ${p.tiers.map((t, i) => `
@@ -722,7 +722,7 @@ function renderGridMatrix() {
               <button class="qty-btn" onclick="alterQuantityNode('${p.id}', 1)">+</button>
             </div>
           </div>
-          <button class="add-to-cart-btn" id="addbtn-${p.id}" onclick="commitToCartArray('${p.id}')">🛒 Add To Selection</button>
+          <button class="add-to-cart-btn" id="addbtn-${p.id}" onclick="commitToCartArray('${p.id}')">🛒 Add To Cart</button>
         </div>
       </div>
     </div>`;
@@ -891,7 +891,8 @@ function executeOrderPipeline() {
   let noteLine = secureNote ? `📝 Notes        : ${secureNote}\n` : '';
   let emailLine = secureEmail ? `📧 Email        : ${secureEmail}\n` : '';
 
-  const compiledMessage = `🛒 *NEW ORDER —*
+  const compiledMessage = 
+    `🛒 *NEW ORDER —*
   *Mayer Haater Swaad*
      *মায়ের হাতের স্বাদ*
 ━━━━━━━━━━━━━━━━━━━━━
