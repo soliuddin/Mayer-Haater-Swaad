@@ -552,7 +552,7 @@
         
         <div class="form-group" style="margin-bottom:14px;">
           <label class="form-label">Receiver Full Name *</label>
-          <input class="form-input" id="addr-name" type="text" placeholder="e.g. Priya Chakraborty"/>
+          <input class="form-input" id="addr-name" type="text" placeholder="e.g. Priya "/>
           <span class="field-error" id="err-name">⚠ Full name log trace is required</span>
         </div>
 
@@ -876,16 +876,44 @@ function executeOrderPipeline() {
 
   const secureName = secureCleanInputString(document.getElementById('addr-name').value);
   const securePhone = secureCleanInputString(document.getElementById('addr-phone').value);
+  const secureEmail = secureCleanInputString(document.getElementById('addr-email').value);
   const secureHouse = secureCleanInputString(document.getElementById('addr-house').value);
   const secureStreet = secureCleanInputString(document.getElementById('addr-street').value);
   const secureCity = secureCleanInputString(document.getElementById('addr-city').value);
   const securePin = secureCleanInputString(document.getElementById('addr-pin').value);
+  const secureState = secureCleanInputString(document.getElementById('addr-state').value);
   const secureNote = secureCleanInputString(document.getElementById('addr-custom-note').value);
 
-  const lines = cartList.map(i => `• ${i.product.name} [Size Weight: ${i.label}] x ${i.qty} units = ₹${i.price * i.qty}`).join('\n');
-  let noteLine = secureNote ? `\n*Special Instructions:* ${secureNote}` : '';
+  const lines = cartList.map(i => `   • ${i.product.name} (${i.label}) x ${i.qty} = ₹${i.price * i.qty}`).join('\n');
+  const orderTotal = cartList.reduce((acc, c) => acc + (c.price * c.qty), 0);
+  
+  let noteLine = secureNote ? `📝 Notes        : ${secureNote}\n` : '';
+  let emailLine = secureEmail ? `📧 Email        : ${secureEmail}\n` : '';
 
-  const compiledMessage = `🛒 *NEW PREMIUM DISPATCH ORDER*\n\n${lines}\n\n*Total Pay Value:* ₹${cartList.reduce((acc, c) => acc + (c.price * c.qty), 0)}\n\n*Shipping Destination:*\nName: ${secureName}\nPhone: ${securePhone}\nAddress: ${secureHouse}, ${secureStreet}, ${secureCity} (${securePin})${noteLine}`;
+  const compiledMessage = `🛒 *NEW ORDER — 
+  Mayer Haater Swaad*
+    মায়ের হাতের স্বাদ
+━━━━━━━━━━━━━━━━━━━━━
+
+📦 *ORDER DETAILS*
+
+${lines}
+
+💰 *Order Total : ₹${orderTotal}*
+━━━━━━━━━━━━━━━━━━━━━
+
+📍 *DELIVERY ADDRESS*
+👤 Name         : ${secureName}
+📞 Phone        : ${securePhone}
+${emailLine}
+🏠 Address      : ${secureHouse}
+🗺️ Area         : ${secureStreet}
+🏙️ City         : ${secureCity}
+📌 PIN Code     : ${securePin}
+📍 State        : ${secureState}
+${noteLine}━━━━━━━━━━━━━━━━━━━━━
+
+🙏 Kindly confirm this order and share the expected delivery date. Thank you!`;
 
   window.open(`https://wa.me/${WP_NUMBER}?text=${encodeURIComponent(compiledMessage)}`, '_blank');
 }
