@@ -14,6 +14,6 @@ If you discover a security vulnerability within the Mayer Haater Swaad website o
 
 Instead, please report it to us directly so we can fix it immediately:
 * **Email:** support@mayerhaaterswaad.com
-* **WhatsApp:** +91 7085330756
+* **WhatsApp:** +91-----
 
 We take the security of our customers seriously and will investigate all reported issues promptly.
