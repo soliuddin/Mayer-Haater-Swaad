@@ -890,9 +890,9 @@ function executeOrderPipeline() {
   let noteLine = secureNote ? `📝 Notes        : ${secureNote}\n` : '';
   let emailLine = secureEmail ? `📧 Email        : ${secureEmail}\n` : '';
 
-  const compiledMessage = `🛒 *NEW ORDER — 
-  Mayer Haater Swaad*
-    মায়ের হাতের স্বাদ
+  const compiledMessage = `🛒 *NEW ORDER —*
+  *Mayer Haater Swaad
+     মায়ের হাতের স্বাদ*
 ━━━━━━━━━━━━━━━━━━━━━
 
 📦 *ORDER DETAILS*
@@ -905,8 +905,7 @@ ${lines}
 📍 *DELIVERY ADDRESS*
 👤 Name         : ${secureName}
 📞 Phone        : ${securePhone}
-${emailLine}
-🏠 Address      : ${secureHouse}
+${emailLine}🏠 Address      : ${secureHouse}
 🗺️ Area         : ${secureStreet}
 🏙️ City         : ${secureCity}
 📌 PIN Code     : ${securePin}
